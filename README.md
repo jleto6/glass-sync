@@ -1,1 +1,1 @@
-# glass-sync
+# GlassSync

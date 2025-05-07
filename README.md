@@ -1,6 +1,6 @@
 # GlassSync API
 
-GlassSync is a tool designed to streamline receiving and downloading media sent from Meta Ray-Ban Smart Glasses via Messenger.
+GlassSync is a Meta Glasses integration tool that automates syncing and downloading videos sent through Messenger from Meta View.
 
 It automates media retrieval by logging into a dedicated Messenger account, monitoring a specified chat thread with your main Facebook account (linked to your Meta Glasses), and downloading incoming media automatically.
 

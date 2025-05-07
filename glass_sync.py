@@ -33,23 +33,24 @@ def download_media(src_url):
 
 # Set up Chrome
 options = uc.ChromeOptions()
-# options.add_argument("--headless")  # Optional for headless deployment
+options.add_argument("--headless")  # For headless deployment
 driver = uc.Chrome(options=options)
 
 # Load environment variables
 load_dotenv()
 EMAIL = os.getenv("MESSENGER_EMAIL")
 PASSWORD = os.getenv("MESSENGER_PASSWORD")
+target_id = os.getenv("MESSENGER_TARGET_ID")
 
 # Navigate to Messenger
-driver.get("https://www.messenger.com/")
+driver.get(f"https://www.messenger.com/t/{target_id}")
 time.sleep(3) # Wait for page to load
 
 # Enter login credentials and submit 
 driver.find_element(By.ID, "email").send_keys(EMAIL)
 driver.find_element(By.ID, "pass").send_keys(PASSWORD)
 driver.find_element(By.ID, "pass").send_keys(Keys.RETURN)
-time.sleep(5) # Wait for page to load
+time.sleep(10) # Wait for page to load
 
 # Find all video and image elements
 videos = driver.find_elements(By.TAG_NAME, "video")

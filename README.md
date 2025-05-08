@@ -1,4 +1,4 @@
-# GlassSync API
+# Meta GlassSync
 
 GlassSync is a Meta Glasses integration tool that automates syncing and downloading videos sent through Messenger from Meta View.
 

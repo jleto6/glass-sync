@@ -1,11 +1,15 @@
-from Quartz import CGWindowListCopyWindowInfo, kCGWindowListOptionOnScreenOnly, kCGNullWindowID
+import win32gui
 
-windows = CGWindowListCopyWindowInfo(
-    0,
-    kCGNullWindowID
-)
 
-for w in windows:
-    print("Owner:", w.get("kCGWindowOwnerName"))
-    print("Name:", w.get("kCGWindowName"))
-    print("---")
+def enum_windows():
+    def callback(hwnd, _):
+        if win32gui.IsWindowVisible(hwnd):
+            title = win32gui.GetWindowText(hwnd)
+            if title:  # ignore empty titles
+                print(f"HWND: {hwnd} | Title: {title}")
+
+    win32gui.EnumWindows(callback, None)
+
+
+if __name__ == "__main__":
+    enum_windows()
